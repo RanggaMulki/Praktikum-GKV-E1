@@ -1,0 +1,34 @@
+Cara Kerja Pergerakan Tangan 
+
+1. Inisialisasi variabel sudut rotasi   
+   - shoulder = 0 untuk sudut bahu
+   - elbow = 0 untuk sudut siku
+
+2. Implementasi struktur hierarkis
+   - Menggunakan matrix stack (push/pop) untuk membuat hubungan parent-child antar bagian lengan
+
+3. Proses transformasi untuk lengan atas
+   - Translasi ke titik pangkal bahu
+   - Rotasi sebesar nilai variabel shoulder
+   - Translasi ke posisi lengan atas
+   - Penskalaan kubus untuk membentuk lengan atas
+
+4. Proses transformasi untuk lengan bawah
+   - Translasi ke posisi siku
+   - Rotasi sebesar nilai variabel elbow
+   - Translasi ke posisi lengan bawah
+   - Penskalaan kubus untuk membentuk lengan bawah
+
+5. Sistem input keyboard
+   - Tombol S: memutar bahu ke atas (+5°)
+   - Tombol W: memutar bahu ke bawah (-5°)
+   - Tombol E: memutar siku ke atas (+5°)
+   - Tombol Q: memutar siku ke bawah (-5°)
+
+6. Prinsip gerakan alamiah
+   - Rotasi bahu mempengaruhi posisi seluruh lengan (lengan atas dan bawah)
+   - Rotasi siku hanya mempengaruhi posisi lengan bawah
+
+7. Penggunaan matrix state
+   - Menyimpan dan memulihkan kondisi transformasi dengan glPushMatrix() dan glPopMatrix()
+   - Membuat efek artikulasi yang realistis
